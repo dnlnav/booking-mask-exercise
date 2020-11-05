@@ -1,0 +1,15 @@
+@import './placeholders';
+@import './functions';
+
+.airport-selector {
+  position: relative;
+}
+
+.airport-selector__label {
+  position: absolute;
+  left: rem(8px);
+}
+
+.airport-selector__dropdown {
+  position: absolute;
+}

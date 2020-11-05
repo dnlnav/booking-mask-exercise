@@ -1,33 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import moment from 'moment';
 
-interface dateSelectorProps {
-  inputName: string;
-  label: string;
-}
+type focusedInputType = 'startDate' | 'endDate' | null;
 
-function DateSelector({ inputName, label }: dateSelectorProps) {
+function DateSelector() {
+  const [startDate, setStartDate] = useState<moment.Moment | null>(null);
+  const [endDate, setEndDate] = useState<moment.Moment | null>(null);
+  const [focusedInput, setFocusedInput] = useState<focusedInputType>(null);
   return (
     <div>
       <div className="date-selector">
         <input
           type="text"
-          name={inputName}
-          id={inputName}
+          name="departure_date"
+          id="departure_date"
           className="date-selector__input"
         />
-        <label htmlFor={inputName}>{label}</label>
+        <label htmlFor="departure_date">Outbound flight</label>
       </div>
       <div className="date-selector">
         <input
           type="text"
-          name={inputName}
-          id={inputName}
+          name="return_flight"
+          id="return_flight"
           className="date-selector__input"
         />
-        <label htmlFor={inputName}>{label}</label>
+        <label htmlFor="return_flight">Return flight</label>
+        <DateRangePicker
+          startDate={startDate}
+          startDateId=""
+          endDate={endDate}
+          endDateId=""
+          onDatesChange={({ startDate, endDate }) => {
+            setStartDate(startDate);
+            setEndDate(endDate);
+          }}
+          focusedInput={focusedInput}
+          onFocusChange={(focusedInput: focusedInputType) =>
+            setFocusedInput(focusedInput)
+          }
+        />
       </div>
     </div>
   );
-};
+}
 
 export default DateSelector;
