@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { searchAirportCodes } from '../store/thunks';
 import { emptyAirportList, stateType } from '../store/reducers';
-import '../styles/airport-selector.scss';
 
 interface airportSelectorProps {
   inputName: string;

@@ -1,0 +1,16 @@
+.passenger-selector {
+  position: relative;
+}
+
+.passenger-selector__input-dropdown {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(100%);
+
+  &.visible {
+    display: block;
+  }
+}

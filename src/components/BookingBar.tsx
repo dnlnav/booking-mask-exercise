@@ -2,7 +2,6 @@ import React from 'react';
 import AirportSelector from './AirportSelector';
 import DateSelector from './DateSelector';
 import PassengerSelector from './PassengerSelector';
-import '../styles/booking-bar.scss';
 
 function BookingBar() {
   return (
